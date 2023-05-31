@@ -1,6 +1,6 @@
 import random
 
-names = ['Sham', 'Khas', 'Smur', 'Kisar', 'Premel']  # Sõitjad listis
+names = ['Luikoja', 'Lepasalu', 'Smurf', 'Toomla', 'Sipelgas']  # Sõitjad listis
 laps = 10  # Võistluse pikkus
 filename = 'Result.txt'  # Faili nimi
 file_header = 'Ring;Nimi;Aeg;Sektor1;Sektor2;Sektor3;Viga\n'  # Faili esimene rida
