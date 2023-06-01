@@ -7,7 +7,7 @@ USAGE:
     Make sure you have Python installed on your system.
     Clone the repository or download the script file mokk.py.
     Open a terminal or command prompt and navigate to the directory where the script is located.
-    Run the following command to execute the script: python mokk.py
+    Run the following command to execute the script: python vormel1.py
 
 Requirements
 
