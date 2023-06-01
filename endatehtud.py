@@ -13,11 +13,9 @@ fastest_lap = ['Unknown', 999]
 three_sectors = [['Unknown', 999], ['Unknown', 999], ['Unknown', 999]]
 sectors_data = []
 
-
 def random_sector_time(mini, maxi):
     thousandth = random.randint(0, 999) / 1000
     return random.randint(mini, maxi) + thousandth
-
 
 def one_lap_time(mini, maxi, driver_name):
     this_total = 0
@@ -31,13 +29,11 @@ def one_lap_time(mini, maxi, driver_name):
         sectors_data.append(this_sector)
     return this_total
 
-
 def is_fastest_lap(driver_name, fastest_data):
     if driver_name == fastest_data[0]:
         return sec2time(fastest_data[1])
     else:
         return ""
-
 
 def sec2time(sec, n_msec=3):
     if hasattr(sec, '__len__'):
@@ -53,10 +49,10 @@ def sec2time(sec, n_msec=3):
         return pattern % (h, m, s)
     return ('%d days, ' + pattern) % (d, h, m, s)
 
-
 if __name__ == '__main__':
     f = open(filename, 'w', encoding='utf-8')
     f.write(file_header)
+
     for name in names:
         lap_times = 0
         errors = []
@@ -72,13 +68,17 @@ if __name__ == '__main__':
                     fastest_lap[0] = name
                     fastest_lap[1] = this_lap
                 lap_times += this_lap
+
             line = ';'.join([str(lap + 1), name, str(sum(sectors_data)), str(sectors_data[0]),
                              str(sectors_data[1]), str(sectors_data[2]), str(error)])
             f.write(line + '\n')
+
         results.append([name, lap_times, errors])
+
     f.close()
 
     results = sorted(results, key=lambda x: x[1])
+
     print(results)
 
     for idx, person in enumerate(results):
@@ -90,8 +90,11 @@ if __name__ == '__main__':
             print(person[0].ljust(10), sec2time(person[1], 3), person[2], is_fastest_lap(person[0], fastest_lap))
 
     print('Sektorite parimad')
+
     total = 0
+
     for idx, driver in enumerate(three_sectors):
         total += driver[1]
         print('Sektor', (idx + 1), driver[0].ljust(10), sec2time(driver[1]))
+
     print('Unelmate ring', sec2time(total))
